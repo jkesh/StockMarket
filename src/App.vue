@@ -1,16 +1,25 @@
 <template>
-  <el-container class="app-layout">
-    <el-header class="app-header">
-      <div class="brand">模拟盘交易系统</div>
-      <el-menu mode="horizontal" :default-active="activeMenu" router>
-        <el-menu-item index="/">股票总览</el-menu-item>
-        <el-menu-item index="/trade">模拟交易</el-menu-item>
+  <div class="tv-shell">
+    <header class="tv-topbar">
+      <div class="tv-logo">
+        <span class="dot"></span>
+        SimTrade Pro
+      </div>
+      <div class="tv-topbar-center">
+        <span class="market-pill">CN-A 股</span>
+        <span class="market-pill">模拟盘</span>
+        <span class="market-pill">实时监控</span>
+      </div>
+      <el-menu class="tv-menu" mode="horizontal" :default-active="activeMenu" router>
+        <el-menu-item index="/">市场终端</el-menu-item>
+        <el-menu-item index="/trade">交易工作台</el-menu-item>
       </el-menu>
-    </el-header>
-    <el-main>
+    </header>
+
+    <main class="tv-main">
       <router-view />
-    </el-main>
-  </el-container>
+    </main>
+  </div>
 </template>
 
 <script setup>

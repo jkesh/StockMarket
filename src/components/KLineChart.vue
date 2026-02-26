@@ -26,22 +26,35 @@ const option = computed(() => {
   const volumeData = props.data.map((item) => item.volume)
 
   return {
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     animation: false,
     title: {
-      text: props.stockCode ? `${props.stockCode} K线` : 'K线走势'
+      text: props.stockCode ? `${props.stockCode} · K线` : 'K线走势',
+      textStyle: {
+        color: '#d7e3ff',
+        fontSize: 13,
+        fontWeight: 500
+      }
     },
     legend: {
+      top: 2,
+      right: 8,
+      textStyle: {
+        color: '#8da2c7'
+      },
       data: ['K线', '成交量']
     },
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      borderColor: '#25314c',
+      backgroundColor: 'rgba(15, 23, 38, 0.94)',
+      textStyle: { color: '#dce8ff' }
     },
     axisPointer: {
       link: [{ xAxisIndex: 'all' }]
     },
     grid: [
-      { left: '8%', right: '5%', top: '15%', height: '55%' },
+      { left: '8%', right: '5%', top: '13%', height: '57%' },
       { left: '8%', right: '5%', top: '75%', height: '15%' }
     ],
     xAxis: [
@@ -49,30 +62,45 @@ const option = computed(() => {
         type: 'category',
         data: labels,
         boundaryGap: false,
-        axisLine: { onZero: false }
+        axisLine: { onZero: false, lineStyle: { color: '#2b3a5a' } },
+        axisLabel: { color: '#8da2c7' }
       },
       {
         type: 'category',
         gridIndex: 1,
         data: labels,
         boundaryGap: false,
-        axisLine: { onZero: false },
+        axisLine: { onZero: false, lineStyle: { color: '#2b3a5a' } },
         axisLabel: { show: false }
       }
     ],
     yAxis: [
       {
         scale: true,
-        splitArea: { show: true }
+        splitArea: { show: false },
+        splitLine: { lineStyle: { color: '#1f2d47' } },
+        axisLabel: { color: '#8da2c7' }
       },
       {
         scale: true,
-        gridIndex: 1
+        gridIndex: 1,
+        splitLine: { lineStyle: { color: '#1f2d47' } },
+        axisLabel: { color: '#8da2c7' }
       }
     ],
     dataZoom: [
-      { type: 'inside', xAxisIndex: [0, 1], start: 60, end: 100 },
-      { show: true, xAxisIndex: [0, 1], type: 'slider', top: '93%', start: 60, end: 100 }
+      { type: 'inside', xAxisIndex: [0, 1], start: 68, end: 100 },
+      {
+        show: true,
+        xAxisIndex: [0, 1],
+        type: 'slider',
+        top: '93%',
+        start: 68,
+        end: 100,
+        borderColor: '#273655',
+        fillerColor: 'rgba(41, 98, 255, 0.18)',
+        backgroundColor: 'rgba(25, 35, 58, 0.5)'
+      }
     ],
     series: [
       {
@@ -80,10 +108,10 @@ const option = computed(() => {
         type: 'candlestick',
         data: klineData,
         itemStyle: {
-          color: '#ef232a',
-          color0: '#14b143',
-          borderColor: '#ef232a',
-          borderColor0: '#14b143'
+          color: '#00c076',
+          color0: '#ff4d4f',
+          borderColor: '#00c076',
+          borderColor0: '#ff4d4f'
         }
       },
       {
@@ -91,7 +119,10 @@ const option = computed(() => {
         type: 'bar',
         xAxisIndex: 1,
         yAxisIndex: 1,
-        data: volumeData
+        data: volumeData,
+        itemStyle: {
+          color: '#4e6aa6'
+        }
       }
     ]
   }
@@ -131,6 +162,6 @@ onBeforeUnmount(() => {
 <style scoped>
 .chart {
   width: 100%;
-  height: 520px;
+  height: 560px;
 }
 </style>
