@@ -1,0 +1,135 @@
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bg-main: #0f1726;
+  --bg-panel: #131c2e;
+  --bg-panel-soft: #19233a;
+  --text-main: #e8efff;
+  --text-subtle: #93a4c3;
+  --border: #273655;
+  --accent: #2962ff;
+  --up: #00c076;
+  --down: #ff4d4f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a2b4d 0%, var(--bg-main) 35%);
+  color: var(--text-main);
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.tv-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tv-topbar {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(15, 23, 38, 0.82);
+  backdrop-filter: blur(12px);
+}
+
+.tv-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #46a0ff, #2962ff);
+  box-shadow: 0 0 14px rgba(41, 98, 255, 0.8);
+}
+
+.tv-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.market-pill {
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+.tv-menu {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+.tv-menu.el-menu--horizontal > .el-menu-item {
+  color: var(--text-subtle);
+  border-bottom: 2px solid transparent;
+}
+
+.tv-menu.el-menu--horizontal > .el-menu-item.is-active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+.tv-main {
+  padding: 14px;
+}
+
+.tv-panel {
+  background: linear-gradient(180deg, rgba(27, 40, 66, 0.95) 0%, rgba(19, 28, 46, 0.95) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-subtle);
+  margin-bottom: 10px;
+}
+
+.up {
+  color: var(--up);
+}
+
+.down {
+  color: var(--down);
+}
+
+.el-table,
+.el-card,
+.el-input__wrapper,
+.el-select__wrapper,
+.el-textarea__inner,
+.el-input-number .el-input__wrapper,
+.el-descriptions {
+  --el-bg-color: transparent;
+  --el-fill-color-blank: transparent;
+  --el-border-color: var(--border);
+  --el-text-color-regular: var(--text-main);
+  --el-text-color-primary: var(--text-main);
+}
+
+.el-card {
+  border: none !important;
+  box-shadow: none !important;
+}
